@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<PizzaContext>(options =>
     options.UseSqlite("Data Source=ContosoPizza.db"));
-
+builder.Services.AddScoped<PizzaService>(); // The AddScoped method indicates that a new PizzaService object should be created for each HTTP request
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
